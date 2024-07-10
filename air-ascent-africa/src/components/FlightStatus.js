@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFlightStatus } from '../redux/actions';
+import styles from './FlightStatus.module.css';
 
 const FlightStatus = () => {
   const [formData, setFormData] = useState({
@@ -20,15 +21,15 @@ const FlightStatus = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input name="flightNumber" value={formData.flightNumber} onChange={handleChange} placeholder="Flight Number" required />
-        <input name="date" type="date" value={formData.date} onChange={handleChange} required />
-        <button type="submit">Get Flight Status</button>
+    <div className={styles.container}>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <input name="flightNumber" value={formData.flightNumber} onChange={handleChange} placeholder="Flight Number" required className={styles.input} />
+        <input name="date" type="date" value={formData.date} onChange={handleChange} required className={styles.input} />
+        <button type="submit" className={styles.button}>Get Flight Status</button>
       </form>
-      {error && <div>{error}</div>}
+      {error && <div className={styles.error}>{error}</div>}
       {flightStatus && (
-        <div>
+        <div className={styles.statusCard}>
           <h3>{flightStatus.airline}</h3>
           <p>Flight Number: {flightStatus.flightNumber}</p>
           <p>Status: {flightStatus.status}</p>
@@ -36,7 +37,7 @@ const FlightStatus = () => {
       )}
     </div>
   );
-};
+ };
 
 export default FlightStatus;
 

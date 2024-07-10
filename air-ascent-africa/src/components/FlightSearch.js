@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchFlights } from '../redux/actions';
+import styles from './FlightSearch.module.css';
 
 const FlightSearch = () => {
   const [formData, setFormData] = useState({
@@ -21,18 +22,20 @@ const FlightSearch = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input name="origin" value={formData.origin} onChange={handleChange} placeholder="Origin" required />
-        <input name="destination" value={formData.destination} onChange={handleChange} placeholder="Destination" required />
-        <input name="departure_date" type="date" value={formData.departure_date} onChange={handleChange} required />
-        <button type="submit">Search Flights</button>
-      </form>
-      {error && <div>{error}</div>}
-      {flights && flights.map(flight => (
-        <div key={flight.id}>{flight.airline} - {flight.price.amount} {flight.price.currency}</div>
-      ))}
-    </div>
+  <div className={styles.container}>
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <input name="origin" value={formData.origin} onChange={handleChange} placeholder="Origin" required className={styles.input} />
+      <input name="destination" value={formData.destination} onChange={handleChange} placeholder="Destination" required className={styles.input} />
+      <input name="departure_date" type="date" value={formData.departure_date} onChange={handleChange} required className={styles.input} />
+      <button type="submit" className={styles.button}>Search Flights</button>
+    </form>
+    {error && <div className={styles.error}>{error}</div>}
+    {flights && flights.map(flight => (
+      <div key={flight.id} className={styles.flightCard}>
+        {flight.airline} - {flight.price.amount} {flight.price.currency}
+      </div>
+    ))}
+  </div>
   );
 };
 

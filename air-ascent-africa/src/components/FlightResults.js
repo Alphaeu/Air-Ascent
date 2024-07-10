@@ -1,17 +1,19 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import styles from './FlightResults.module.css';
 
 const FlightResults = () => {
   const { flights } = useSelector(state => state.flights);
 
   return (
-    <div>
-      {flights && flights.map(flight => (
-        <div key={flight.id}>
+    <div className={styles.container}>
+      {flights.map(flight => (
+        <div key={flight.id} className={styles.flightCard}>
           <h3>{flight.airline}</h3>
-          <p>{flight.origin} to {flight.destination}</p>
-          <p>{flight.departure_time} - {flight.arrival_time}</p>
-          <p>{flight.price.amount} {flight.price.currency}</p>
+          <p>Price: {flight.price.amount} {flight.price.currency}</p>
+          <p>Departure: {flight.departureTime}</p>
+          <p>Arrival: {flight.arrivalTime}</p>
+          <Link to={`/book/${flight.id}`} className={styles.bookButton}>Book</Link>
         </div>
       ))}
     </div>

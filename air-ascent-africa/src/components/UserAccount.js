@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser, loginUser } from '../redux/actions';
+import styles from './UserAccount.module.css';
 
 const UserAccount = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -27,21 +28,21 @@ const UserAccount = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.container}>
+      <form onSubmit={handleSubmit} className={styles.form}>
         {!isLogin && (
           <>
-            <input name="firstName" value={formData.firstName} onChange={handleChange} placeholder="First Name" required />
-            <input name="lastName" value={formData.lastName} onChange={handleChange} placeholder="Last Name" required />
+            <input name="firstName" value={formData.firstName} onChange={handleChange} placeholder="First Name" required className={styles.input} />
+            <input name="lastName" value={formData.lastName} onChange={handleChange} placeholder="Last Name" required className={styles.input} />
           </>
         )}
-        <input name="email" value={formData.email} onChange={handleChange} placeholder="Email" required />
-        <input name="password" type="password" value={formData.password} onChange={handleChange} placeholder="Password" required />
-        <button type="submit">{isLogin ? 'Login' : 'Register'}</button>
+        <input name="email" value={formData.email} onChange={handleChange} placeholder="Email" required className={styles.input} />
+        <input name="password" type="password" value={formData.password} onChange={handleChange} placeholder="Password" required className={styles.input} />
+        <button type="submit" className={styles.button}>{isLogin ? 'Login' : 'Register'}</button>
       </form>
-      <button onClick={() => setIsLogin(!isLogin)}>{isLogin ? 'Create an account' : 'Login with existing account'}</button>
-      {error && <div>{error}</div>}
-      {userInfo && <div>Welcome, {userInfo.firstName}</div>}
+      <button onClick={() => setIsLogin(!isLogin)} className={styles.toggleButton}>{isLogin ? 'Switch to Register' : 'Switch to Login'}</button>
+      {error && <div className={styles.error}>{error}</div>}
+      {userInfo && <div className={styles.welcomeMessage}>Welcome, {userInfo.firstName}!</div>}
     </div>
   );
 };

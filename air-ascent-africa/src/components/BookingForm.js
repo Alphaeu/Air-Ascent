@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bookFlight } from '../redux/actions';
+import styles from './BookingForm.module.css';
 
-const BookingForm = ({ flightId }) => {
+const BookingForm = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
-    flightId,
   });
   const dispatch = useDispatch();
   const { booking, error } = useSelector(state => state.bookings);
@@ -22,15 +22,15 @@ const BookingForm = ({ flightId }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input name="firstName" value={formData.firstName} onChange={handleChange} placeholder="First Name" required />
-        <input name="lastName" value={formData.lastName} onChange={handleChange} placeholder="Last Name" required />
-        <input name="email" value={formData.email} onChange={handleChange} placeholder="Email" required />
-        <button type="submit">Book Flight</button>
+    <div className={styles.container}>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <input name="firstName" value={formData.firstName} onChange={handleChange} placeholder="First Name" required className={styles.input} />
+        <input name="lastName" value={formData.lastName} onChange={handleChange} placeholder="Last Name" required className={styles.input} />
+        <input name="email" value={formData.email} onChange={handleChange} placeholder="Email" required className={styles.input} />
+        <button type="submit" className={styles.button}>Book Flight</button>
       </form>
-      {error && <div>{error}</div>}
-      {booking && <div>Booking Confirmed: {booking.id}</div>}
+      {error && <div className={styles.error}>{error}</div>}
+      {booking && <div className={styles.confirmation}>Booking Confirmed: {booking.id}</div>}
     </div>
   );
 };

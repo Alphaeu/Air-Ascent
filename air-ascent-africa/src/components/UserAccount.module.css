@@ -1,0 +1,52 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+input {
+  margin-bottom: 10px;
+  padding: 8px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.toggleButton {
+  background-color: transparent;
+  color: #007bff;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  text-decoration: underline;
+}
+
+.toggleButton:hover {
+  color: #0056b3;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.welcomeMessage {
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+
