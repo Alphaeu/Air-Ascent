@@ -1,0 +1,14 @@
+// User Constants
+export const USER_REGISTER_SUCCESS = 'USER_REGISTER_SUCCESS';
+export const USER_REGISTER_FAIL = 'USER_REGISTER_FAIL';
+export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
+export const USER_LOGIN_FAIL = 'USER_LOGIN_FAIL';
+
+// Flight Constants
+export const FLIGHT_SEARCH_SUCCESS = 'FLIGHT_SEARCH_SUCCESS';
+export const FLIGHT_SEARCH_FAIL = 'FLIGHT_SEARCH_FAIL';
+
+// Booking Constants
+export const BOOK_FLIGHT_SUCCESS = 'BOOK_FLIGHT_SUCCESS';
+export const BOOK_FLIGHT_FAIL = 'BOOK_FLIGHT_FAIL';
+
