@@ -1,0 +1,50 @@
+/* Add your styles here */
+#payment-form {
+    width: 400px;
+    margin: 0 auto;
+  }
+  
+  #card-element {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  #submit {
+    background-color: #5469d4;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  #submit:disabled {
+    background-color: #ccc;
+  }
+  
+  .spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .card-error {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  .result-message {
+    color: green;
+    margin-top: 10px;
+  }
+  

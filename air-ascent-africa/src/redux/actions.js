@@ -11,7 +11,7 @@ import {
 } from './constants';
 
 // Base API URL
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'http://localhost:3000/api';
 
 // User Actions
 export const registerUser = (userData) => async (dispatch) => {
